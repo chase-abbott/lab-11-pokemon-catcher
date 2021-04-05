@@ -10,7 +10,7 @@ const img1 = document.querySelector('#poke-img-1');
 const img2 = document.querySelector('#poke-img-2');
 const img3 = document.querySelector('#poke-img-3');
 
-const button = document.querySelector('button');
+const button = document.querySelector('#reset-button');
 
 //state
 let captures = 0;
@@ -31,9 +31,15 @@ function createPokemonDOM() {
 createPokemonDOM();
 
 button.addEventListener('click', () => {
+    if (!document.querySelector('input:checked')) {
+        alert('Please select a Pokemon');
+        return;
+    }
+
     captures++;
+
     if (captures === 10) {
-        window.location.href = './results/index.html';
+        window.location = './results/index.html';
     }
 
     const selectedRadio = document.querySelector('input:checked');

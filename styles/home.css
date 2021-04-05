@@ -6,8 +6,7 @@ section {
 
 img {
     height: 200px;
-    width: 150px;
-    margin: 25px;
+    margin-right: 25px;
 }
 
 input {
@@ -16,6 +15,7 @@ input {
 
 input:checked + img {
     box-shadow: 2px 2px 2px 2px black;
+    border-radius: 25px;
 }
 
 button {
@@ -26,6 +26,10 @@ button {
     width: 4rem;
 }
 
-/* button:focus{
-    border: none;
-} */
+#reset-button {
+   height: 150px;
+}
+
+#reset-button:active {
+    transform: translateY(1rem);
+}

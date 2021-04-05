@@ -10,4 +10,10 @@ tr {
 button {
     width: 100px;
     height: 60px;
+    outline: none;
+}
+
+button:focus {
+    outline: none;
+    border: none;
 }
