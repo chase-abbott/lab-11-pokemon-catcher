@@ -22,7 +22,7 @@ export function setPokedex(parsedPokedex) {
 export function encounterPokemon(pokemon) {
     const pokedex = getPokedex();
 
-    const matchingPokedexItem = findById(pokedex, pokemon.id);
+    const matchingPokedexItem = findById(pokedex, pokemon.pokemon);
 
     if (matchingPokedexItem) {
         matchingPokedexItem.encountered++;
@@ -42,7 +42,7 @@ export function encounterPokemon(pokemon) {
 export function capturePokemon(pokemon) {
     const pokedex = getPokedex();
 
-    const matchingPokedexItem = findById(pokedex, pokemon.id);
+    const matchingPokedexItem = findById(pokedex, pokemon.pokemon);
 
     matchingPokedexItem.captured++;
 

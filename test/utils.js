@@ -2,7 +2,7 @@ import { pokeData } from '../data.js'
 
 export function findById(array, id) {
     for (let item of array) {
-        if (item._id === id) {
+        if (item.id === id) {
             return item;
         }
     }
@@ -14,5 +14,4 @@ export function findByPokeName(pokemonName) {
             return item;
         }
     }
-
 }

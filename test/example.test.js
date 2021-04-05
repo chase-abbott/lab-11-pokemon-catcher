@@ -10,7 +10,7 @@ const test = QUnit.test;
 test('Tests findbyId function', (expect) => {
     const expected = pokeData[0];
 
-    const actual = findById(pokeData, '5cef3501ef6005a77cd4fd17')
+    const actual = findById(pokeData, 1)
 
     expect.equal(actual, expected);
 });
