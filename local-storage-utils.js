@@ -44,7 +44,7 @@ export function capturePokemon(pokemon) {
 
     const matchingPokedexItem = findById(pokedex, pokemon.id);
 
-    matchingPokedexItem.capturePokemon++;
+    matchingPokedexItem.captured++;
 
     setPokedex(pokedex);
 
