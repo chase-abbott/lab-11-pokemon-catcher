@@ -1,4 +1,4 @@
-import { capturePokemon, generateThreePokemon, getPokedex } from './local-storage-utils.js'
+import { capturePokemon, generateThreePokemon, getPokedex } from './local-storage-utils.js';
 import { findByPokeName, findById } from './test/utils.js';
 
 const radio1 = document.querySelector('#poke-id-1');
