@@ -461,4 +461,4 @@ export const pokeData = [
         'pokebase': 'pidgey',
         'pokedex': 'http://www.pokemon.com/us/pokedex/pidgey'
     }
-]
+];
