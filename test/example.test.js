@@ -25,11 +25,3 @@ test('Tests getPokedex function', (expect) => {
     const actual = getPokedex()
     expect.deepEqual(actual, expected);
 });
-
-test('time to test a function', (expect) => {
-    const expected = pokeData[0];
-
-    const actual = findById(pokeData, '5cef3501ef6005a77cd4fd17')
-
-    expect.equal(actual, expected);
-});
