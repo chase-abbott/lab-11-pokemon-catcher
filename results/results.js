@@ -15,6 +15,6 @@ for (let array of pokedex) {
 button.addEventListener('click', () => {
     alert(JSON.stringify(pokedex));
     localStorage.clear();
-    window.location = '/';
+    window.location = '../index.html';
 });
 
