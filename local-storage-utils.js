@@ -1,5 +1,5 @@
-import { findById } from './test/utils.js'
-import { pokeData } from './data.js'
+import { findById } from './test/utils.js';
+import { pokeData } from './data.js';
 
 const POKEDEX = 'POKEDEX';
 
@@ -31,7 +31,7 @@ export function encounterPokemon(pokemon) {
             id: pokemon.pokemon,
             encountered: 1,
             captured: 0
-        }
+        };
         pokedex.push(newPokedexItem);
     }
     setPokedex(pokedex);
