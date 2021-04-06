@@ -49,4 +49,4 @@ button.addEventListener('click', () => {
 
     capturePokemon(pokeObject);
     createPokemonDOM();
-})
+});
