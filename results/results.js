@@ -1,5 +1,5 @@
 import { getPokedex } from '../local-storage-utils.js';
-import { findById, findByPokeName } from '../test/utils.js';
+import { findById, findByPokeName, uniqueTypes } from '../test/utils.js';
 
 
 
@@ -26,9 +26,13 @@ for (let pokemon of pokedex) {
 
 let uniqueTypesSet = new Set(types);
 let uniqueTypesArray = Array.from(uniqueTypesSet);
+const numberOfTypes = uniqueTypes(types)
 
+const valueOfNumberOfTypes = Object.values(numberOfTypes);
+
+console.log(types)
+console.log(numberOfTypes)
 console.log(uniqueTypesArray);
-
 
 var ctx = document.getElementById('myChart').getContext('2d');
 var myChart = new Chart(ctx, {
@@ -70,8 +74,6 @@ var myChart = new Chart(ctx, {
     }
 });
 
-const DATA_COUNT = types.length;
-const NUMBER_CFG = { count: DATA_COUNT, min: 0, max: 100 };
 
 
 var don = document.getElementById('second-chart').getContext('2d');
@@ -82,7 +84,7 @@ var secondChart = new Chart(don, {
         datasets: [
             {
                 label: 'Pokemon Types',
-                data: [25, 25, 25, 25],
+                data: valueOfNumberOfTypes,
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)'
                 ],

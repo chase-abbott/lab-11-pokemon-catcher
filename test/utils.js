@@ -16,10 +16,10 @@ export function findByPokeName(pokemonName) {
     }
 }
 
-export function findByType(array, pokemonType) {
-    for (let item of array) {
-        if (item.type === pokemonType)
-            return item;
+export function uniqueTypes(array) {
+    const counts = [];
+    for (let i = 0; i < array.length; i++) {
+        counts[array[i]] = 1 + counts[array[i]] || 1;
     }
+    return counts;
 }
-
