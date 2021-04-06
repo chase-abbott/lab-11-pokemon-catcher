@@ -25,5 +25,3 @@ test('Tests getPokedex function', (expect) => {
     const actual = getPokedex();
     expect.deepEqual(actual, expected);
 });
-
-
