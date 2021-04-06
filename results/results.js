@@ -17,22 +17,25 @@ for (let pokemon of pokedex) {
     captures.push(pokemon.captured);
     encounters.push(pokemon.encountered);
 }
+console.log(pokedex)
 
 for (let pokemon of pokedex) {
+    let i = 1;
     const matchingPokemon = findById(pokedex, pokemon.id);
     const matchingName = findByPokeName(matchingPokemon.id);
-    types.push(matchingName.type_1);
+    if (pokemon.captured >= 1) {
+        types.push(matchingName.type_1);
+        while (pokemon.captured > i) {
+            types.push(matchingName.type_1);
+            i++;
+        };
+    }
 }
 
 let uniqueTypesSet = new Set(types);
 let uniqueTypesArray = Array.from(uniqueTypesSet);
 const numberOfTypes = uniqueTypes(types)
-
 const valueOfNumberOfTypes = Object.values(numberOfTypes);
-
-console.log(types)
-console.log(numberOfTypes)
-console.log(uniqueTypesArray);
 
 var ctx = document.getElementById('myChart').getContext('2d');
 var myChart = new Chart(ctx, {
@@ -44,10 +47,10 @@ var myChart = new Chart(ctx, {
                 label: 'Pokemon Captured',
                 data: captures,
                 backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)'
+                    'rgb(255, 191, 0)',
                 ],
                 borderColor: [
-                    'rgba(54, 162, 235, 1)',
+                    'rgb(0, 0, 0)',
                 ],
                 borderWidth: 1
             },
@@ -55,10 +58,10 @@ var myChart = new Chart(ctx, {
                 label: 'Pokemon Encountered',
                 data: encounters,
                 backgroundColor: [
-                    'rgba(54, 162, 235, 0.2)',
+                    'rgb(232, 63, 111)',
                 ],
                 borderColor: [
-                    'rgba(255, 99, 132, 1)',
+                    'rgb(0, 0, 0)',
 
                 ],
                 borderWidth: 1
@@ -86,10 +89,14 @@ var secondChart = new Chart(don, {
                 label: 'Pokemon Types',
                 data: valueOfNumberOfTypes,
                 backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)'
+                    'rgb(255, 191, 0)',
+                    'rgb(232, 63, 111)',
+                    'rgb(34, 116, 165)',
+                    'rgb(50, 147, 111)',
+                    'rgb(255, 255, 255)',
                 ],
                 borderColor: [
-                    'rgba(54, 162, 235, 1)',
+                    'rgb(0, 0, 0))',
                 ],
                 borderWidth: 1
             },
@@ -103,7 +110,7 @@ var secondChart = new Chart(don, {
             },
             title: {
                 display: true,
-                text: 'Pokemon Types Caught'
+                text: 'Types of Pokemon Caught'
             }
         }
     },
