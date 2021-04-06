@@ -1,11 +1,5 @@
-<<<<<<< HEAD
-
 import { capturePokemon, generateThreePokemon, getPokedex } from './local-storage-utils.js'
 import { findByPokeName, findById } from './test/utils.js';
-=======
-import { capturePokemon, generateThreePokemon } from './local-storage-utils.js';
-import { findByPokeName } from './test/utils.js';
->>>>>>> bdfba65f38d61d5e865806da54887a5de07ff0c5
 
 const radio1 = document.querySelector('#poke-id-1');
 const radio2 = document.querySelector('#poke-id-2');
@@ -15,16 +9,9 @@ const img1 = document.querySelector('#poke-img-1');
 const img2 = document.querySelector('#poke-img-2');
 const img3 = document.querySelector('#poke-img-3');
 
-<<<<<<< HEAD
 const pEncounter1 = document.querySelector('#encounter-1');
 const pEncounter2 = document.querySelector('#encounter-2');
 const pEncounter3 = document.querySelector('#encounter-3');
-=======
-
-const pEncounter1 = document.querySelector('#encounter-1')
-const pEncounter2 = document.querySelector('#encounter-2')
-const pEncounter3 = document.querySelector('#encounter-3')
->>>>>>> bdfba65f38d61d5e865806da54887a5de07ff0c5
 
 const pCapture1 = document.querySelector('#capture-1');
 const pCapture2 = document.querySelector('#capture-2');
