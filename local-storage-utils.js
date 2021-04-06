@@ -2,6 +2,7 @@ import { findById } from './test/utils.js';
 import { pokeData } from './data.js';
 
 const POKEDEX = 'POKEDEX';
+const ALLTIMEPOKEDEX = 'ALLTIMEPOKEDEX';
 
 export function getPokedex() {
     const stringyPokedex = localStorage.getItem(POKEDEX);
@@ -77,4 +78,20 @@ export function generateThreePokemon() {
 
 function getRandomIndex() {
     return Math.floor(Math.random() * pokeData.length);
+}
+
+export function getAllTime() {
+    const stringyPokedex = localStorage.getItem(ALLTIMEPOKEDEX);
+
+    if (!stringyPokedex) return [];
+
+    const parsedPokedex = JSON.parse(stringyPokedex);
+
+    return parsedPokedex;
+}
+
+export function setAllTime(parsedPokedex) {
+    const stringyPokedex = JSON.stringify(parsedPokedex);
+
+    localStorage.setItem(ALLTIMEPOKEDEX, stringyPokedex);
 }

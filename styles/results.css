@@ -17,3 +17,8 @@ button:focus {
     outline: none;
     border: none;
 }
+
+canvas {
+    width: 100px;
+    height: 100px;
+}
