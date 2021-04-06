@@ -4,7 +4,7 @@ import { renderTableRows } from './results-utils.js';
 const button = document.querySelector('button');
 const table = document.querySelector('table');
 
-const pokedex = getPokedex()
+const pokedex = getPokedex();
 
 for (let array of pokedex) {
     const tr = renderTableRows(array);
@@ -16,5 +16,5 @@ button.addEventListener('click', () => {
     alert(JSON.stringify(pokedex));
     localStorage.clear();
     window.location = '/';
-})
+});
 
