@@ -1,44 +1,65 @@
 import { getPokedex } from '../local-storage-utils.js';
-import { renderTableRows } from './results-utils.js';
+import { findById, findByPokeName } from '../test/utils.js';
+
+
 
 const button = document.querySelector('button');
 
-const pokedex = getPokedex();
+let pokedex = getPokedex();
 
 const names = [];
 const captures = [];
+const encounters = [];
+const types = [];
 
 for (let pokemon of pokedex) {
     names.push(pokemon.id);
     captures.push(pokemon.captured);
+    encounters.push(pokemon.encountered);
 }
+
+for (let pokemon of pokedex) {
+    const matchingPokemon = findById(pokedex, pokemon.id);
+    const matchingName = findByPokeName(matchingPokemon.id);
+    types.push(matchingName.type_1);
+}
+
+let uniqueTypesSet = new Set(types);
+let uniqueTypesArray = Array.from(uniqueTypesSet);
+
+console.log(uniqueTypesArray);
+
 
 var ctx = document.getElementById('myChart').getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'bar',
     data: {
         labels: names,
-        datasets: [{
-            label: 'Pokemon Captured',
-            data: captures,
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
-        }]
+        datasets: [
+            {
+                label: 'Pokemon Captured',
+                data: captures,
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(54, 162, 235, 1)',
+                ],
+                borderWidth: 1
+            },
+            {
+                label: 'Pokemon Encountered',
+                data: encounters,
+                backgroundColor: [
+                    'rgba(54, 162, 235, 0.2)',
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+
+                ],
+                borderWidth: 1
+            }
+        ]
     },
     options: {
         scales: {
@@ -49,9 +70,45 @@ var myChart = new Chart(ctx, {
     }
 });
 
-button.addEventListener('click', () => {
-    alert(JSON.stringify(pokedex));
-    localStorage.removeItem('POKEDEX');
-    window.location = '../index.html';
+const DATA_COUNT = types.length;
+const NUMBER_CFG = { count: DATA_COUNT, min: 0, max: 100 };
+
+
+var don = document.getElementById('second-chart').getContext('2d');
+var secondChart = new Chart(don, {
+    type: 'doughnut',
+    data: {
+        labels: uniqueTypesArray,
+        datasets: [
+            {
+                label: 'Pokemon Types',
+                data: [25, 25, 25, 25],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(54, 162, 235, 1)',
+                ],
+                borderWidth: 1
+            },
+        ]
+    },
+    options: {
+        responsive: true,
+        plugins: {
+            legend: {
+                position: 'top',
+            },
+            title: {
+                display: true,
+                text: 'Pokemon Types Caught'
+            }
+        }
+    },
 });
 
+button.addEventListener('click', () => {
+    alert(JSON.stringify(pokedex));
+    localStorage.clear('POKEDEX');
+    window.location = '../index.html';
+});

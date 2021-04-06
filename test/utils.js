@@ -15,3 +15,11 @@ export function findByPokeName(pokemonName) {
         }
     }
 }
+
+export function findByType(array, pokemonType) {
+    for (let item of array) {
+        if (item.type === pokemonType)
+            return item;
+    }
+}
+
