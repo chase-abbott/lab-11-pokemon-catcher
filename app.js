@@ -1,4 +1,4 @@
-import { capturePokemon, generateThreePokemon, getPokedex } from './local-storage-utils.js';
+import { capturePokemon, generateThreePokemon, getPokedex, setAllTime } from './local-storage-utils.js'
 import { findByPokeName, findById } from './test/utils.js';
 
 const radio1 = document.querySelector('#poke-id-1');
@@ -45,6 +45,8 @@ function createPokemonDOM() {
     img3.src = threePokemon[2].url_image;
     pEncounter3.textContent = `Encountered: ${matching3.encountered}`;
     pCapture3.textContent = `Captured: ${matching3.captured}`;
+
+    // setAllTime(pokedex);
 }
 
 createPokemonDOM();

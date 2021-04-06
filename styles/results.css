@@ -11,9 +11,19 @@ button {
     width: 100px;
     height: 60px;
     outline: none;
+    margin-bottom: 50px;
 }
 
 button:focus {
     outline: none;
     border: none;
+}
+
+#MyChart {
+   max-height: 300px;
+    margin: 30px;
+}
+
+#second-chart{
+    max-height: 500px;
 }
