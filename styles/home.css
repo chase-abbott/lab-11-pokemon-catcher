@@ -1,1 +1,35 @@
 /* add home page styles here */
+section {
+    display: flex;
+    flex-direction: row;
+}
+
+img {
+    height: 200px;
+    margin-right: 25px;
+}
+
+input {
+    display: none;
+}
+
+input:checked + img {
+    box-shadow: 2px 2px 2px 2px black;
+    border-radius: 25px;
+}
+
+button {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    border-radius: 50%;
+    height: 4rem;
+    width: 4rem;
+}
+
+#reset-button {
+   height: 150px;
+}
+
+#reset-button:active {
+    transform: translateY(1rem);
+}

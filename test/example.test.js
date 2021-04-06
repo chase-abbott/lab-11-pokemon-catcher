@@ -1,18 +1,29 @@
 // IMPORT MODULES under test here:
-// import { example } from '../example.js';
+import { pokeData } from '../data.js';
+import { findById } from './utils.js';
+import { getPokedex } from '../local-storage-utils.js';
 
 const test = QUnit.test;
 
-test('time to test a function', (expect) => {
-    //Arrange
-    // Set up your arguments and expectations
-    const expected = true;
-    
-    //Act 
-    // Call the function you're testing and set the result to a const
-    const actual = true;
 
-    //Expect
-    // Make assertions about what is expected versus the actual result
+
+test('Tests findbyId function', (expect) => {
+    const expected = pokeData[0];
+
+    const actual = findById(pokeData, 1);
+
     expect.equal(actual, expected);
 });
+
+test('Tests getPokedex function', (expect) => {
+    const stringyPokedex = JSON.stringify(pokeData);
+
+    localStorage.setItem('POKEDEX', stringyPokedex);
+
+    const expected = JSON.parse(localStorage.getItem('POKEDEX'));
+
+    const actual = getPokedex();
+    expect.deepEqual(actual, expected);
+});
+
+
