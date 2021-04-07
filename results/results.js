@@ -1,6 +1,7 @@
+/* eslint no-use-before-define: 0 */  // --> OFF
+
 import { getPokedex } from '../local-storage-utils.js';
 import { findById, findByPokeName, uniqueTypes } from '../test/utils.js';
-import { Chart } from 'chart.js';
 
 const button = document.querySelector('button');
 
