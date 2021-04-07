@@ -1,5 +1,6 @@
 import { getPokedex } from '../local-storage-utils.js';
 import { findById, findByPokeName, uniqueTypes } from '../test/utils.js';
+import { Chart } from 'chart.js';
 
 const button = document.querySelector('button');
 
@@ -76,8 +77,8 @@ new Chart(ctx, {
 
 
 
-var don = document.getElementById('second-chart').getContext('2d');
-new Chart(don, {
+var dough = document.getElementById('second-chart').getContext('2d');
+new Chart(dough, {
     type: 'doughnut',
     data: {
         labels: uniqueTypesArray,
