@@ -35,7 +35,7 @@ const numberOfTypes = uniqueTypes(types);
 const valueOfNumberOfTypes = Object.values(numberOfTypes);
 
 var ctx = document.getElementById('myChart').getContext('2d');
-var myChart = new Chart(ctx, {
+new Chart(ctx, {
     type: 'bar',
     data: {
         labels: names,
@@ -77,7 +77,7 @@ var myChart = new Chart(ctx, {
 
 
 var don = document.getElementById('second-chart').getContext('2d');
-var secondChart = new Chart(don, {
+new Chart(don, {
     type: 'doughnut',
     data: {
         labels: uniqueTypesArray,
