@@ -1,8 +1,6 @@
 import { getPokedex } from '../local-storage-utils.js';
 import { findById, findByPokeName, uniqueTypes } from '../test/utils.js';
 
-
-
 const button = document.querySelector('button');
 
 let pokedex = getPokedex();
@@ -17,7 +15,6 @@ for (let pokemon of pokedex) {
     captures.push(pokemon.captured);
     encounters.push(pokemon.encountered);
 }
-console.log(pokedex)
 
 for (let pokemon of pokedex) {
     let i = 1;
@@ -28,13 +25,13 @@ for (let pokemon of pokedex) {
         while (pokemon.captured > i) {
             types.push(matchingName.type_1);
             i++;
-        };
+        }
     }
 }
 
 let uniqueTypesSet = new Set(types);
 let uniqueTypesArray = Array.from(uniqueTypesSet);
-const numberOfTypes = uniqueTypes(types)
+const numberOfTypes = uniqueTypes(types);
 const valueOfNumberOfTypes = Object.values(numberOfTypes);
 
 var ctx = document.getElementById('myChart').getContext('2d');
